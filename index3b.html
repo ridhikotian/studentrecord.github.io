@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light Simulator</title>
+    <style>
+        .traffic-light{
+            width:100px;
+            height:300px;
+            border:1px solid black;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:space-between;
+            margin-top:50px;
+        }
+
+        .light{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            margin:10px;
+        }
+
+        .red{
+            background-color:red;
+        }
+
+
+        .yellow{
+            background-color:yellow;
+        }
+
+
+        .green{
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class ="traffic-light">
+        <div class ="light red"></div>
+        <div class ="light yellow"></div>
+        <div class ="light green"></div>
+        </div>
+        <script>
+            const redLight = document.querySelector('.red');
+            const yellowLight = document.querySelector('.yellow');
+            const greenLight = document.querySelector('.green');
+
+            function changeLights() {
+                setTimeout(() => {
+                    redLight.style.backgroundColor = 'red';
+                    yellowLight.style.backgroundColor = 'transparent';
+                    greenLight.style.backgroundColor = 'transparent';
+
+                setTimeout(() => {
+                    redLight.style.backgroundColor = 'transparent';
+                    yellowLight.style.backgroundColor = 'yellow';
+                    greenLight.style.backgroundColor = 'transparent';    
+                   
+                setTimeout(() => {
+                    redLight.style.backgroundColor = 'transparent';
+                    yellowLight.style.backgroundColor = 'transparent';
+                    greenLight.style.backgroundColor = 'green';    
+
+                changeLights();
+
+                },2000);
+                },1000);
+             },2000);
+            }
+
+            changeLights();
+        </script>
+        
+    
+</body>
+</html>
